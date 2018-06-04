@@ -1,4 +1,4 @@
-# No imports allowed besides these.
+
 from collections import Counter, defaultdict
 from itertools import chain, combinations
 import glob
@@ -24,19 +24,7 @@ def download_data():
     tar.close()
 
 def read_data(path):
-    """
-    Walks all subdirectories of this path and reads all
-    the text files and labels.
-    DONE ALREADY.
-
-    Params:
-      path....path to files
-    Returns:
-      docs.....list of strings, one per document
-      labels...list of ints, 1=positive, 0=negative label.
-               Inferred from file path (i.e., if it contains
-               'pos', it is 1, else 0)
-    """
+   
     fnames = sorted([f for f in glob.glob(os.path.join(path, 'pos', '*.txt'))])
     data = [(1, open(f).readlines()[0]) for f in sorted(fnames)]
     fnames = sorted([f for f in glob.glob(os.path.join(path, 'neg', '*.txt'))])
@@ -271,10 +259,7 @@ def print_top_misclassified(test_docs, test_labels, X_test, clf, n):
     pass
 
 def main():
-    """
-    Put it all together.
-    ALREADY DONE.
-    """
+    
     feature_fns = [token_features, token_pair_features, lexicon_features]
     # Download and read data.
     download_data()
