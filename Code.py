@@ -14,9 +14,7 @@ import tarfile
 import urllib.request
 
 def download_data():
-    """ Download and unzip data.
-    DONE ALREADY.
-    """
+    
     url = 'https://www.dropbox.com/s/xk4glpk61q3qrg2/imdb.tgz?dl=1'
     urllib.request.urlretrieve(url, 'imdb.tgz')
     tar = tarfile.open("imdb.tgz")
